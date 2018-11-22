@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: order  #对应配置服务名  /{name}-{profiles}.yml     /{label}/{name}-{profiles}.yml
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG  #配置中心服务
+      profile: dev #配置文件
+server:
+  port: 8084
+#PRODUCT:
+ # ribbon:
+  #  NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+   # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #改变ribbon负载均衡规则
