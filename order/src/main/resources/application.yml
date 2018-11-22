@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  #因为调用config服务用到服务注册和发现所以需要先加载eureka配置 然后在调用config服务加载其他配置信息
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG  #配置中心服务
+      profile: dev #配置文件
+server:
+  port: 8083
+PRODUCT:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #改变ribbon负载均衡规则

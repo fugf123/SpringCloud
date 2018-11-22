@@ -1,0 +1,15 @@
+#首先加载配置文件 引导文件
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+spring:
+  application:
+    name: order  #对应配置服务名  /{name}-{profiles}.yml     /{label}/{name}-{profiles}.yml
+server:
+  port: 8083
+
+PRODUCT:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #改变ribbon负载均衡规则

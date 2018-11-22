@@ -1,0 +1,24 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true  #设置使用ip访问eureka  使用ip而不是eureka的id
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://localhost:8761/eureka/
+          username: 1965356450@qq.com
+          password: fgf123456
+          basedir: D:\app\Docker Toolbox\installers\git  #?????????????·??????git???·??
+server:
+  port: 8084
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #暴露接口
